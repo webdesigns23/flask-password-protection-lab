@@ -64,6 +64,9 @@ passwords.
 
 To complete the lab and get the tests passing, you will need to:
 
+- Add methods to the User model to protect and set the password_hash property and
+  authenticate a user with their password.
+
 - Create a `Signup` resource with a `post()` method that responds to a
   `POST /signup` request. It should: create a new user; save their hashed
   password in the database; save the user's ID in the session object; and return
@@ -102,7 +105,44 @@ imported by `app.py` and `models.py` when they're ready to be used.
 
 ### Task 3: Develop, Test, and Refine the Code
 
-#### Step 1: Create Signup Endpoint
+#### Step 1: Protect the `password_hash` Property
+
+In the User model, add logic to protect the password_property by raising an Exception.
+
+```python
+# Build method to protect password_hash property
+@hybrid_property
+def password_hash(self):
+    pass
+```
+
+#### Step 2: Use Bcrypt to Hash the Password
+
+In the User model, use `brcypt.generate_password_hash` to set the property.
+
+```python
+# Build method to set password hash property using bcrypt.generate_password_hash()
+@password_hash.setter
+def password_hash(self, password):
+    pass
+```
+
+#### Step 3: Use Bcrypt to Authenticate a User
+
+In the User model, use `brcypt.check_password_hash` to verify a user's password.
+
+```python
+# Build authenticate method that uses bcrypt.check_password_hash()
+def authenticate(self, password):
+    pass
+```
+
+There are no tests for these methods, but you can verify they're set up properly by
+using `flask shell` and creating some users.
+
+Once you have all methods created, commit your code.
+
+#### Step 4: Create Signup Endpoint
 
 Create `POST /signup` endpoint. Implement the following:
 - Create a new user. 
@@ -112,7 +152,7 @@ Create `POST /signup` endpoint. Implement the following:
 
 Test your logic with `pytest` and commit your code.
 
-#### Step 2: Create Check Session Endpoint
+#### Step 5: Create Check Session Endpoint
 
 Create `GET /check_session` endpoint. Implement the following:
 - If the user is authenticated, return the user object in the JSON response. 
@@ -120,7 +160,7 @@ Create `GET /check_session` endpoint. Implement the following:
 
 Test your logic with `pytest` and commit your code.
 
-#### Step 3: Create Login Endpoint
+#### Step 6: Create Login Endpoint
 
 Create `POST /login` endpoint. Implement the following:
 - Log the user in with sessions.
@@ -128,14 +168,14 @@ Create `POST /login` endpoint. Implement the following:
 
 Test your logic with `pytest` and commit your code.
 
-#### Step 4: Create Logout Endpoint
+#### Step 7: Create Logout Endpoint
   
 Create `DELETE /logout` endpoint. Implement the following:
 - Log the user out with sessions.
 
 Test your logic with `pytest` and commit your code.
 
-#### Step 5: Commit and Push Git History
+#### Step 8: Commit and Push Git History
 
 Once all tests are passing, `git commit` (if needed) and `git push` your final code
 to GitHub:
@@ -150,7 +190,7 @@ If you created a separate feature branch, remember to open a PR on main and merg
 
 ### Task 4: Document and Maintain
 
-Best Practice documentation steps:
+Optional Best Practice documentation steps:
 * Add comments to the code to explain purpose and logic, clarifying intent and 
 functionality of your code to other developers.
 * Update README text to reflect the functionality of the application following 
