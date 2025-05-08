@@ -2,8 +2,25 @@
 
 ## Introduction
 
-We're going to make a Flask app that covers a simple authentication flow: users
-can create accounts, log in, and log out.
+In this lab, you'll implement a secure authentication system that uses password hashing,
+sessions, and route access control to manage user login and logout. This brings together
+all the concepts you’ve learned about authentication so far, but with a critical
+enhancement: users will now verify their identity using a password, and that password
+will be safely hashed and stored in the database.
+
+Plaintext password storage is one of the most dangerous vulnerabilities in any web
+application. Instead of storing passwords directly, we’ll use Flask-Bcrypt to generate
+one-way encrypted hashes, which can be validated without ever revealing the original
+password.
+
+You’ll build the full login workflow: signing up new users, verifying credentials on login,
+checking whether a session is active, and logging users out. All of this will happen on the
+Flask backend, while the provided React frontend will automatically reflect the user’s
+authenticated state.
+
+By the end of this lab, you’ll have implemented a secure, production-ready authentication
+system using password hashing and session-based login—essential skills for any backend
+developer working on user-facing applications.
 
 ## Tools & Resources
 
