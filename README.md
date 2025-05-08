@@ -59,7 +59,8 @@ Users should not be able to log in if they enter an incorrect password.
 
 ### Task 2: Determine the Design
 
-We need to implement a secure way for users to log in with passwords.
+We need to implement a way for users to sign up, log in, and log out with secure
+passwords.
 
 To complete the lab and get the tests passing, you will need to:
 
@@ -136,7 +137,8 @@ Test your logic with `pytest` and commit your code.
 
 #### Step 5: Commit and Push Git History
 
-Once all tests are passing, `git commit` (if needed) and `git push` your final code to GitHub:
+Once all tests are passing, `git commit` (if needed) and `git push` your final code
+to GitHub:
 
 ```bash
 git add .
@@ -149,8 +151,10 @@ If you created a separate feature branch, remember to open a PR on main and merg
 ### Task 4: Document and Maintain
 
 Best Practice documentation steps:
-* Add comments to the code to explain purpose and logic, clarifying intent and functionality of your code to other developers.
-* Update README text to reflect the functionality of the application following https://makeareadme.com. 
+* Add comments to the code to explain purpose and logic, clarifying intent and 
+functionality of your code to other developers.
+* Update README text to reflect the functionality of the application following 
+https://makeareadme.com. 
   * Add screenshot of completed work included in Markdown in README.
 * Delete any stale branches on GitHub
 * Remove unnecessary/commented out code
@@ -160,4 +164,5 @@ Best Practice documentation steps:
 
 CodeGrade will use the same test suite as the test suite included.
 
-Once all tests are passing, commit and push your work using `git` to submit to CodeGrade through Canvas.
+Once all tests are passing, commit and push your work using `git` to submit to 
+CodeGrade through Canvas.
