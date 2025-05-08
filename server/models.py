@@ -1,5 +1,5 @@
 from sqlalchemy.ext.hybrid import hybrid_property
-from sqlalchemy_serializer import SerializerMixin
+from marshmallow import Schema, fields
 
 from config import db, bcrypt
 
@@ -26,3 +26,7 @@ class User(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'User {self.username}, ID: {self.id}'
+
+class UserSchema(Schema):
+    id = fields.Int()
+    username = fields.String()

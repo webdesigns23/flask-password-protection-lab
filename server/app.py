@@ -4,7 +4,7 @@ from flask import request, session
 from flask_restful import Resource
 
 from config import app, db, api
-from models import User
+from models import User, UserSchema
 
 class ClearSession(Resource):
 
@@ -25,7 +25,7 @@ class Signup(Resource):
         user.password_hash = json['password']
         db.session.add(user)
         db.session.commit()
-        return user.to_dict(), 201
+        return UserSchema().dump(user), 201
 
 class CheckSession(Resource):
     pass
