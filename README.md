@@ -115,7 +115,7 @@ def password_hash(self):
 
 #### Step 2: Use Bcrypt to Hash the Password
 
-In the User model, use `brcypt.generate_password_hash` to set the property.
+In the User model, use `bcrypt.generate_password_hash` to set the property.
 
 ```python
 # Build method to set password hash property using bcrypt.generate_password_hash()
@@ -126,7 +126,7 @@ def password_hash(self, password):
 
 #### Step 3: Use Bcrypt to Authenticate a User
 
-In the User model, use `brcypt.check_password_hash` to verify a user's password.
+In the User model, use `bcrypt.check_password_hash` to verify a user's password.
 
 ```python
 # Build authenticate method that uses bcrypt.check_password_hash()
