@@ -69,7 +69,7 @@ To complete the lab and get the tests passing, you will need to:
   password in the database; save the user's ID in the session object; and return
   the user object in the JSON response.
 
-- Add a `get()` method to your `CheckSession` resource that responds to a
+- Create a `CheckSession` resource with a `get()` method that responds to a
   `GET /check_session` request. If the user is authenticated, return the user
   object in the JSON response. Otherwise, return an empty response with a 204
   status code.
