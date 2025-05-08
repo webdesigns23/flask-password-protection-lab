@@ -3,7 +3,7 @@ from marshmallow import Schema, fields
 
 from config import db, bcrypt
 
-class User(db.Model, SerializerMixin):
+class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
