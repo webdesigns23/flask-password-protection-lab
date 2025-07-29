@@ -14,8 +14,23 @@ class ClearSession(Resource):
         session['user_id'] = None
 
         return {}, 204
+    
+class Signup(Resource):
+    def post(self):
+        data = request.get_json()
+        new_user = User(username = data['username'])
+
+        new_user._password_hash = data['password']
+
+        db.session.add(new_user)
+        db.session.commit()
+        return UserSchema().dump(new_user),201
+
+
+
 
 api.add_resource(ClearSession, '/clear', endpoint='clear')
+api.add_resource(Signup, '/signup', endpoint='signup')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
